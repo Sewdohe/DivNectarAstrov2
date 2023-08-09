@@ -1,0 +1,148 @@
+---
+import ImageCard from "../components/ImageCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="CraftNectar Minecraft Server">
+  <div class="craftnectar-header">
+    <video class="mb-6" width="100%" height="auto" autoplay muted loop id="parkour">
+      <source src="/videos/parkour.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay">
+      <h1
+        class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r m-b-0 from-yellow-400 to-amber-600"
+      >
+        CraftNectar
+      </h1>
+      <p class="text-gray-500 pt-0 pl-8">Vanilla 1.20.1 Server w/ Plugins</p>
+      <p>
+        Thanks for considering playing at CraftNectar! We'd love to have you on
+        the server! With 32GB of RAM we have plenty of resources for you! We
+        have a delightful server packed full of features via plugins. We have
+        multiple worlds running concurrently on CraftNectar. At the moment we
+        have the following worlds:
+      </p>
+      <ul class="px-8 list-disc">
+        <li>SMP Survival World</li>
+        <li>Floating Island Parkour World</li>
+        <li>End/Nether</li>
+        <li>Doodle Jump vs Game World</li>
+        <li>Skyblock</li>
+        <li>A Hub World/Giant Castle</li>
+      </ul>
+      <p>
+        We are also packing all the best and latest plugins - including Dynmap,
+        Essentials, LuckPerms, Multiverse, Geyser, GSit, DiscordLink, Damage
+        Indicators, and GriefPrevention
+      </p>
+      <p>
+        We are building a new community at the moment since we have switched
+        over from modded fabric to vanilla/spigot(paper). We are welcoming all
+        new members regardless of age or skills, as long as you are a decent
+        person you have a place at CraftNectar. I am also giving out VIP/OG
+        ranks for newly joining and active members - these ranks will translate
+        into some pretty cool perks as time goes on and I implement more and
+        more things on the server.I have great things planned for the future of
+        CraftNectar, so hop on in today and get to playing!
+      </p>
+    </div>
+  </div>
+
+  
+  <section>
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+        <ImageCard title="Parkour" imageURI="parkour.png">
+          <span
+            >We have a parkour map featuring 8 different floating islands with
+            unique parkour challenges! A beatufiul map that is tons of fun! Get
+            there with <code>/parkour</code></span
+          >
+        </ImageCard>
+        <ImageCard title="Cross-Play" imageURI="geyser.png">
+          <span
+            >CraftNectar is accessible from both Bedrock and Java clients via <a
+              href="https://geysermc.org/">GeyserMC.</a
+            > Link your Bedrock and Java accounts <a
+              href="https://link.geysermc.org/">here</a
+            ></span
+          >
+        </ImageCard>
+        <ImageCard
+          title="Multiple Worlds"
+          imageURI="multiverse2.png"
+          link={{ name: "Link Accounts", url: "https://link.geysermc.org/" }}
+        >
+          <span
+            >We run multiple worlds on the server, accessible with shortcut
+            commands. Seamlessly switch between multiple worlds with different
+            things to do using custom shortcut commands we created. Portals
+            comming soon to the Hub world for even easier access!</span
+          >
+        </ImageCard>
+        <ImageCard title="Skyblock" imageURI="skyblock.png">
+          <span
+            >We run <a
+              href="https://iridium-development.gitbook.io/iridiumskyblock/general/features"
+              >Iridium Skyblock.</a
+            > Run <code class="inline">/island</code> to generate your island. Simply
+            use another world command to leave your island. Use <code
+              class="inline">/skyblock</code
+            > to reach your island again.</span
+          >
+        </ImageCard>
+      </div>
+    </div>
+  </section>
+  <section>
+    <p>
+      A paragraph
+    </p>
+  </section>
+</Layout>
+
+<style>
+  p {
+    @apply p-4;
+  }
+  .feature {
+    width: 100%;
+    @apply pl-4;
+  }
+  .feature span {
+    @apply pl-6;
+  }
+  .feature li {
+    list-style: circle;
+  }
+  .feature a {
+    text-decoration: underline;
+    @apply text-pink-300;
+  }
+  .video-overlay {
+    position: relative;
+    top: 68px;
+    color: #f1f1f1;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .craftnectar-header {
+    width: 100vw;
+    position: relative;
+  }
+  #parkour {
+    /* position: absolute; */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh + 10%);
+    background: rgba(0, 0, 0, 1);
+    object-fit: cover;
+  }
+  video {
+    filter: brightness(30%);
+  }
+</style>

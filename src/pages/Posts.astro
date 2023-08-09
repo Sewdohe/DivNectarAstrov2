@@ -1,0 +1,77 @@
+---
+import Chip from "../components/Chip.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1
+      class="font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+    >
+      CraftNectar Blog
+    </h1>
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+        {
+          blogEntries.map((blogPostEntry) => (
+            <>
+              <article class="bg-backgroundAlt overflow-hidden m-8 rounded-lg shadow-lg max-w-lg">
+                <a href={blogPostEntry.slug}></a>
+
+                <header class="flex flex-col items-center justify-between leading-tight p-4 md:p-4">
+                  <h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
+                    <a
+                      class="no-underline hover:underline text-blue"
+                      href={blogPostEntry.slug}
+                    >
+                      {blogPostEntry.data.title}
+                    </a>
+                  </h1>
+                  <time
+                    class="text-pink text-lg"
+                    datetime={blogPostEntry.data.date.toString()}
+                  >
+                    {new Date(blogPostEntry.data.date).toLocaleDateString(
+                      "en-us",
+                      {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      }
+                    )}
+                  </time>
+                </header>
+
+                <footer class="flex items-center justify-between leading-none p-4 md:p-4 flex-col">
+                  <a
+                    class="flex items-center no-underline hover:underline text-black"
+                    href="/resume"
+                  >
+                    <img
+                      alt="Placeholder"
+                      class="block rounded-full"
+                      style="height: 48px"
+                      src="/me.png"
+                    />
+                    <p class="ml-2 text-orange text-sm">Sewdohe</p>
+                  </a>
+                </footer>
+              </article>
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+</style>

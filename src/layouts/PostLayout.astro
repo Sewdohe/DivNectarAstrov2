@@ -1,0 +1,43 @@
+---
+import Nav from "../components/Nav.svelte";
+// 1. The frontmatter prop gives access to frontmatter and other data
+const { frontmatter } = Astro.props;
+---
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- Add other UI components here, like common headers and footers. -->
+    <Nav />
+    <!-- 2. Rendered HTML will be passed into the default slot. -->
+    <div class="page-content">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  body {
+		background: linear-gradient(176deg, rgba(18,24,27,1) 50%, rgba(32,39,55,1) 100%);
+    min-height: 100vh;
+    background-attachment: fixed;
+    color: white;
+  }
+  p {
+    padding: 16px;
+  }
+  pre {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 24px;
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    border: 2px dotted white;
+  }
+  .page-content {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 68px;
+  }
+</style>

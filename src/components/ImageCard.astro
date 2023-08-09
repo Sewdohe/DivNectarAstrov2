@@ -1,0 +1,56 @@
+---
+import Chip from "./Chip.astro";
+interface Props {
+  imageURI: string;
+  title: string;
+  link?: {
+    name: string;
+    url: string;
+  };
+}
+
+const { imageURI, title, link } = Astro.props;
+---
+
+<div class="z-10">
+  <article
+    class="bg-backgroundAlt overflow-hidden m-8 rounded-lg shadow-lg max-w-lg"
+  >
+    <img
+      alt="Placeholder"
+      class="block h-auto relative w-full"
+      style="z-index: 3"
+      src={"/images/cards/" + imageURI}
+    />
+
+    <header class="flex items-center justify-between leading-tight p-4 md:p-4">
+      <h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
+        {title}
+      </h1>
+    </header>
+
+    <p class="p-6">
+      <slot />
+    </p>
+
+    <footer
+      class="flex items-center justify-between leading-none p-4 md:p-4 flex-col"
+    >
+      <div
+        class="m-2 flex flex-wrap justify-center align-bottom max-w-md h-full"
+      >
+        {
+          link && (
+            <Chip class="max-w-sm">
+              <a class="text-background text-sm" href={link.url}>
+                {link.name}
+              </a>
+            </Chip>
+          )
+        }
+      </div>
+    </footer>
+  </article>
+</div>
+
+<style></style>
