@@ -5,7 +5,15 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="CraftNectar Minecraft Server">
   <div class="craftnectar-header">
-    <video class="mb-6" width="100%" height="auto" autoplay muted loop id="parkour">
+    <video
+      class="mb-6"
+      width="100%"
+      height="auto"
+      autoplay
+      muted
+      loop
+      id="parkour"
+    >
       <source src="/videos/parkour.mp4" type="video/mp4" />
     </video>
     <div class="video-overlay">
@@ -48,56 +56,43 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
 
-  
   <section>
     <div class="container my-12 mx-auto px-4 md:px-12">
       <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
-        <ImageCard title="Parkour" imageURI="parkour.png">
+        <ImageCard title="Custom Items" imageURI="items.png">
           <span
-            >We have a parkour map featuring 8 different floating islands with
-            unique parkour challenges! A beatufiul map that is tons of fun! Get
-            there with <code>/parkour</code></span
+            >We develop our very own items for the server. Using MMO items we're
+            able to Lock certian items behind level or attribute requirements.
+            In true MMO fashion, weapons have a chance to spawn with unique
+            modifiers.</span
           >
         </ImageCard>
-        <ImageCard title="Cross-Play" imageURI="geyser.png">
+        <ImageCard title="Furniture" imageURI="furniture.png">
           <span
-            >CraftNectar is accessible from both Bedrock and Java clients via <a
-              href="https://geysermc.org/">GeyserMC.</a
-            > Link your Bedrock and Java accounts <a
-              href="https://link.geysermc.org/">here</a
-            ></span
+            >
+            Who needs furniture mods? Offered in the server resource pack, we have plenty of furniture available to make your house a home.
+            </span
           >
         </ImageCard>
         <ImageCard
-          title="Multiple Worlds"
-          imageURI="multiverse2.png"
-          link={{ name: "Link Accounts", url: "https://link.geysermc.org/" }}
+          title="Custom GUI's"
+          imageURI="menu.png"
         >
           <span
-            >We run multiple worlds on the server, accessible with shortcut
-            commands. Seamlessly switch between multiple worlds with different
-            things to do using custom shortcut commands we created. Portals
-            comming soon to the Hub world for even easier access!</span
+            >Ugly default GUI's offer a poor user experience in my opinion. That's why I've went through great lenghts in order to provide our
+            users with custom GUI's wherever possible - even creating my own where neccessary, such as the server main menu.</span
           >
         </ImageCard>
-        <ImageCard title="Skyblock" imageURI="skyblock.png">
+        <ImageCard title="Custom Pets" imageURI="pets.png">
           <span
-            >We run <a
-              href="https://iridium-development.gitbook.io/iridiumskyblock/general/features"
-              >Iridium Skyblock.</a
-            > Run <code class="inline">/island</code> to generate your island. Simply
-            use another world command to leave your island. Use <code
-              class="inline">/skyblock</code
-            > to reach your island again.</span
+            >Like cute little deadly pets? Enjoy flying giant dragons? Come on by, we've got tons of pets!</span
           >
         </ImageCard>
       </div>
     </div>
   </section>
   <section>
-    <p>
-      A paragraph
-    </p>
+    <p>A paragraph</p>
   </section>
 </Layout>
 

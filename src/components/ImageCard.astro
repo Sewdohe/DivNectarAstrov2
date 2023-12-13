@@ -24,12 +24,12 @@ const { imageURI, title, link } = Astro.props;
     />
 
     <header class="flex items-center justify-between leading-tight p-4 md:p-4">
-      <h1 class="text-2xl md:text-xl sm:text-lg font-extrabold z-10">
+      <h1 class="text-4xl md:text-4xl sm:text-2xl font-extrabold z-10">
         {title}
       </h1>
     </header>
 
-    <p class="p-6">
+    <p class="min-h-[200px] p-6">
       <slot />
     </p>
 
