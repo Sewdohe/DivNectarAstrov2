@@ -21,7 +21,7 @@
       >
     </a>
     <div class="flex-grow"></div>
-    <div class="flex md:order-2">
+    <div class="flex md:order-2 md:invisible lg:invisible">
       <Hamburger --color="white" class="md:hidden" bind:open />
     </div>
     <div
