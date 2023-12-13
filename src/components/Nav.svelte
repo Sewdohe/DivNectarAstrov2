@@ -9,11 +9,11 @@
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a href="https://flowbite.com/" class="flex items-center">
+    <a href="https://divnectar.com/" class="flex items-center">
       <img
-        src="https://flowbite.com/docs/images/logo.svg"
+        src="/images/logo.png"
         class="h-8 mr-3"
-        alt="Flowbite Logo"
+        alt="DivNectar Logo"
       />
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
