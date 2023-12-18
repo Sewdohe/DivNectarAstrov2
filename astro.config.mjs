@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import node from "@astrojs/node";
 
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
