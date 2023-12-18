@@ -1,6 +1,8 @@
 ---
+import Card from "../components/Card.astro";
 import ImageCard from "../components/ImageCard.astro";
 import Layout from "../layouts/Layout.astro";
+import PlayerList from "../components/PlayerList.svelte"
 ---
 
 <Layout title="CraftNectar Minecraft Server">
@@ -37,8 +39,15 @@ import Layout from "../layouts/Layout.astro";
         <li>Land-Claiming via GUI</li>
         <li>Custom server shop with custom GUI</li>
       </ul>
+      <section>
+        <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
+          <PlayerList client:load/>
+        </div>
+      </section>
     </div>
   </div>
+
+
 
   <section>
     <div class="container my-12 mx-auto px-4 md:px-12">
