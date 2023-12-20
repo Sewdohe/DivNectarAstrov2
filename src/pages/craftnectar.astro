@@ -2,7 +2,40 @@
 import Card from "../components/Card.astro";
 import ImageCard from "../components/ImageCard.astro";
 import Layout from "../layouts/Layout.astro";
-import PlayerList from "../components/PlayerList.svelte"
+import OnlineList from "../components/OnlineList.astro";
+import axios from "axios";
+
+interface PlayerData {
+  name: string;
+  image: string;
+}
+
+var raw = "%playerlist_all:_list%";
+
+let playersRes = await axios({
+  url: "http://craft.divnectar.com:4444/api/placeholder",
+  data: raw,
+  responseType: "json",
+  method: "POST",
+  headers: {
+    Authorization: "Bearer testingthis",
+  },
+});
+
+let players = playersRes.data.placeholder.split(", ");
+let Players = players.map(async (p: string) => {
+  let res = await axios({
+    url: "https://minotar.net/avatar/" + p,
+    method: "GET",
+  });
+  var final = {
+    name: p,
+    image: res.data,
+  };
+  return final;
+});
+
+// Players[0].then(v => console.log(v))
 ---
 
 <Layout title="CraftNectar Minecraft Server">
@@ -26,10 +59,11 @@ import PlayerList from "../components/PlayerList.svelte"
       </h1>
       <p class="text-gray-500 pt-0 pl-8">Vanilla 1.20.1 Server w/ Plugins</p>
       <p class="text-lg">
-        CraftNectar is my 1.20.1 Paper server which houses a rather unique RPG experience for players to enjoy.
-
-        Boasting custom items, GUI's, world generation, economy, minigames, and so much more - CraftNectar offers players endless hours of enjoyment. Here are just a few of
-        the things the server has to offer players:
+        CraftNectar is my 1.20.1 Paper server which houses a rather unique RPG
+        experience for players to enjoy. Boasting custom items, GUI's, world
+        generation, economy, minigames, and so much more - CraftNectar offers
+        players endless hours of enjoyment. Here are just a few of the things
+        the server has to offer players:
       </p>
       <ul class="px-8 list-disc">
         <li>Custom Generated Survival World</li>
@@ -41,13 +75,12 @@ import PlayerList from "../components/PlayerList.svelte"
       </ul>
       <section>
         <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
-          <PlayerList client:load/>
+          <!-- players component goes here -->
+          <OnlineList players={Players} />
         </div>
       </section>
     </div>
   </div>
-
-
 
   <section>
     <div class="container my-12 mx-auto px-4 md:px-12">
@@ -61,24 +94,23 @@ import PlayerList from "../components/PlayerList.svelte"
           >
         </ImageCard>
         <ImageCard title="Furniture" imageURI="furniture.png">
-          <span
-            >
-            Who needs furniture mods? Offered in the server resource pack, we have plenty of furniture available to make your house a home.
-            </span
-          >
+          <span>
+            Who needs furniture mods? Offered in the server resource pack, we
+            have plenty of furniture available to make your house a home.
+          </span>
         </ImageCard>
-        <ImageCard
-          title="Custom GUI's"
-          imageURI="menu.png"
-        >
+        <ImageCard title="Custom GUI's" imageURI="menu.png">
           <span
-            >Ugly default GUI's offer a poor user experience in my opinion. That's why I've went through great lenghts in order to provide our
-            users with custom GUI's wherever possible - even creating my own where neccessary, such as the server main menu.</span
+            >Ugly default GUI's offer a poor user experience in my opinion.
+            That's why I've went through great lenghts in order to provide our
+            users with custom GUI's wherever possible - even creating my own
+            where neccessary, such as the server main menu.</span
           >
         </ImageCard>
         <ImageCard title="Custom Pets" imageURI="pets.png">
           <span
-            >Like cute little deadly pets? Enjoy flying giant dragons? Come on by, we've got tons of pets!</span
+            >Like cute little deadly pets? Enjoy flying giant dragons? Come on
+            by, we've got tons of pets!</span
           >
         </ImageCard>
       </div>

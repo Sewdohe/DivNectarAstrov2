@@ -1,11 +1,13 @@
 import { defineConfig } from 'astro/config';
-
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
+import preact from '@astrojs/preact';
+
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind()],
+  integrations: [svelte(), tailwind(), preact({ compat: true })],
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -16,7 +18,7 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: [],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
-    },
-  },
+      wrap: true
+    }
+  }
 });
