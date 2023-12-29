@@ -1,5 +1,4 @@
 ---
-import Card from "../components/Card.astro";
 import ImageCard from "../components/ImageCard.astro";
 import Layout from "../layouts/Layout.astro";
 import OnlineList from "../components/OnlineList.astro";
@@ -10,7 +9,7 @@ interface PlayerData {
   image: string;
 }
 
-var raw = "%playerlist_all:_list%";
+var raw = "%playerlist_alltime:_list%";
 
 let playersRes = await axios({
   url: "http://craft.divnectar.com:4444/api/placeholder",
@@ -23,20 +22,27 @@ let playersRes = await axios({
 });
 
 let players = playersRes.data.placeholder.split(", ");
-let Players = players.map(async (p: string) => {
-  let res = await axios({
-    url: "https://minotar.net/avatar/" + p,
-    method: "GET",
-  });
-  var final = {
-    name: p,
-    image: res.data,
-  };
-  return final;
-});
+console.log(players);
 
-// Players[0].then(v => console.log(v))
+// let Players = players.map(async (p: string) => {
+//   let res = await axios({
+//     url: "https://minotar.net/avatar/" + p,
+//     method: "GET",
+//     responseType: "arraybuffer",
+//   });
+//   var arrayBufferView = new Uint8Array(res.data);
+//   var blob = new Blob([arrayBufferView], { type: "image/png" });
+//   var urlCreator = window.URL || window.webkitURL;
+//   var imageUrl = urlCreator.createObjectURL(blob);
+
+//   var final = {
+//     name: p,
+//     image: imageUrl,
+//   };
+//   return final;
+// });
 ---
+
 
 <Layout title="CraftNectar Minecraft Server">
   <div class="craftnectar-header">
@@ -76,7 +82,7 @@ let Players = players.map(async (p: string) => {
       <section>
         <div class="flex flex-wrap justify-evenly -mx-1 lg:-mx-4">
           <!-- players component goes here -->
-          <OnlineList players={Players} />
+          <OnlineList players={players} />
         </div>
       </section>
     </div>
